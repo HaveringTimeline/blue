@@ -1,0 +1,901 @@
+/* =========================================================
+  GLOBAL LAYOUT
+   ========================================================= */
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #172640;
+  background:
+    radial-gradient(circle at top, rgba(19, 200, 213, 0.1), transparent 34%),
+    linear-gradient(180deg, #f7faff 0%, #eaf2ff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  margin-top: 110px;
+  position: relative;
+  max-width: 1180px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(29, 36, 48, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(18, 61, 184, 0.1);
+  padding: 2rem 2rem 3rem;
+  backdrop-filter: blur(2px);
+}
+
+/* =========================================================
+   Utility Text
+   ========================================================= */
+
+/* Romhm text styles */
+.romhm-text {
+  font-size: 0.92rem;
+  color: #1455e8;
+  margin: 1rem 0 1.2rem;
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 85, 232, 0.08),
+    rgba(19, 200, 213, 0.12)
+  );
+  border-left: 4px solid #087eaa;
+  border-radius: 10px;
+  align-content: center;
+}
+
+/* No data message styles */
+.no-data-message {
+  background-color: #eaf2ff;
+  border: 1px solid #8bb5ff;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 16px 0;
+  color: #123db8;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Copyright message styles */
+.copyright-text {
+  font-size: 0.82rem;
+  color: #53657d;
+  margin-top: 1rem;
+  font-weight: 700;
+  text-align: center;
+  font-style: italic;
+}
+
+/* =========================================================
+  IMAGE & FIGURE STYLES 
+   ========================================================= */
+
+/* Image and figure styles */
+figcaption {
+  color: black;
+  font-weight: bold;
+}
+
+.centered-figure {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.centered-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.image-col img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Link container styles */
+.link-container {
+  margin: 1.2rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(20, 85, 232, 0.16);
+  border-left: 4px solid #087eaa;
+  border-radius: 14px;
+  width: fit-content;
+  max-width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(234, 242, 255, 0.8)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.link-container a {
+  display: block;
+  margin: 0.5rem 0;
+  color: #0d5b92;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.link-container a:hover {
+  color: #1455e8;
+  text-decoration: underline;
+}
+
+/* Image row and column styles */
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+  justify-content: center;
+}
+
+.image-col {
+  min-width: 250px;
+  text-align: center;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.sidebar {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: linear-gradient(160deg, #1766f4 0%, #123db8 100%);
+  color: #1455e8;
+  padding: 75px 12px 32px;
+  border-right: 4px solid rgba(19, 200, 213, 0.8);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   SIDEBAR ACCORDION — Bootstrap Overrides 
+   ========================================================= */
+
+/* Remove Bootstrap borders/shadows */
+.accordion-item {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Global accordion-button look */
+.accordion-button {
+  color: #1455e8 !important;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.42) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #1455e8 !important;
+  font-weight: 800 !important;
+  background-color: #eaf2ff !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+/* Sidebar accordion arrows */
+.sidebar .accordion-button::before {
+  color: #16227f;
+}
+
+/* Global accordion-body style */
+.accordion-body {
+  background-color: #eaf2ff;
+}
+
+.accordion-body p {
+  color: #1455e8;
+  font-weight: 500;
+}
+
+.accordion-header h2 {
+  font-weight: 500;
+}
+
+.accordion-body h2 {
+  font-size: 25px !important;
+  color: #1455e8 !important;
+  font-weight: 500 !important;
+}
+
+/* =========================================================
+   SDEBAR ACCORDION OVERRIDES
+   ========================================================= */
+
+.sidebar .accordion-button {
+  background: linear-gradient(90deg, #123db8 0%, #303c4d 100%) !important;
+  color: #f8f4ef !important;
+  border-radius: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.sidebar .accordion-button:hover {
+  background: linear-gradient(90deg, #00aebd 0%, #f2bb06 100%) !important;
+  color: #1455e8 !important;
+  border-radius: 12px;
+}
+
+.sidebar .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, #dceaff 0%, #df0c16 100%) !important;
+  color: #1455e8 !important;
+}
+
+.sidebar .accordion-body {
+  background: rgba(255, 255, 255, 0.22) !important;
+  padding: 0.45rem 0.55rem 0.8rem;
+}
+
+/* =========================================================
+   SIDEBAR LINKS
+   ========================================================= */
+.sidebar .nav-link {
+  padding: 0.7rem 0.9rem;
+  color: #1455e8;
+  transition: all 0.2s ease;
+  font-size: 0.92rem !important;
+  font-weight: 600;
+  border-radius: 10px;
+  margin: 0.18rem 0;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.sidebar .nav-link:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 85, 232, 0.06),
+    rgba(19, 200, 213, 0.08)
+  );
+  color: #123db8;
+  border-color: rgba(20, 85, 232, 0.18);
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.sidebar i {
+  margin-right: 8px;
+}
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+.main {
+  margin-left: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* =========================================================
+   TIMELINE CONTAINER
+   ========================================================= */
+#autoTimelineWrap {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  background: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#autoTimelineTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  will-change: transform;
+}
+
+/* =========================================================
+   TIMELINE CARDS
+   ========================================================= */
+.card {
+  width: 85%;
+  border: 1px solid rgba(127, 22, 41, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(18, 61, 184, 0.12);
+  overflow: hidden;
+  margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(247, 242, 232, 0.9)
+  );
+  position: relative;
+  isolation: isolate;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #1455e8 0%, #13c8d5 48%, #1455e8 100%);
+  z-index: 1;
+}
+
+.card-body {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(245, 239, 229, 0.7)
+  );
+  padding: 1.8rem 1.5rem 1.6rem;
+  border-radius: 0 0 28px 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-h1 {
+  color: #1455e8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 2vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.timeline-p {
+  color: #172640;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  text-align: justify;
+  padding: 0 0.9rem;
+}
+
+.timeline-p:first-letter {
+  font-weight: 700;
+  color: #1455e8;
+}
+
+/* =========================================================
+   LINK CONTAINER
+   ========================================================= */
+.link-container::before {
+  color: #1455e8;
+  content: "Further reading\00a0";
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* =========================================================
+   SCROLL ARROWS
+   ========================================================= */
+.scroll-arrow {
+  position: absolute;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: linear-gradient(135deg, #1455e8 0%, #123db8 100%);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 22px rgba(18, 61, 184, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scroll-arrow:hover {
+  background: linear-gradient(135deg, #dceaff 0%, #13c8d5 100%);
+  color: #123db8;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 16px 26px rgba(18, 61, 184, 0.18);
+}
+
+#scrollUp {
+  top: 30%;
+}
+
+#scrollDown {
+  bottom: 30%;
+}
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+/*Nav-bar only */
+
+.navbar.fixed-top {
+  --bs-bg-opacity: 1;
+  background: linear-gradient(90deg, #123db8 0%, #1455e8 100%) !important;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(18, 61, 184, 0.2);
+}
+
+/* Nav links */
+.nav-link {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: transparent;
+  margin-right: 0.35rem;
+  border-radius: 999px;
+  justify-content: center;
+  padding: 0.55rem 0.9rem !important;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(19, 200, 213, 0.2) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: none;
+  border-radius: 999px;
+}
+
+/* navbar brand style */
+.navbar-brand {
+  color: #fff;
+  background: rgba(19, 200, 213, 0.18);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+}
+
+.navbar-brand:hover {
+  background: rgba(19, 200, 213, 0.32);
+  color: #fff;
+}
+
+.navbar-nav {
+  padding-left: 1rem;
+  gap: 0.15rem;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main {
+    margin-left: 200px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .timeline-h1 {
+    font-size: 1.5rem;
+  }
+
+  .timeline-p {
+    font-size: 1rem;
+  }
+}
+
+.navbar .nav-link:hover {
+  background: rgba(19, 200, 213, 0.2) !important;
+  color: #fff !important;
+}
+
+.btn-primary {
+  --bs-btn-bg: #1455e8;
+  --bs-btn-border-color: #1455e8;
+  --bs-btn-hover-bg: #123db8;
+  --bs-btn-hover-border-color: #123db8;
+  --bs-btn-active-bg: #123db8;
+  --bs-btn-active-border-color: #123db8;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #1455e8;
+  --bs-btn-border-color: #1455e8;
+  --bs-btn-hover-bg: #1455e8;
+  --bs-btn-hover-border-color: #1455e8;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #13c8d5;
+  box-shadow: 0 0 0 0.25rem rgba(20, 85, 232, 0.18);
+}
+
+.no-data-message {
+  color: #123db8;
+  background: #eaf2ff;
+  border-color: #8bb5ff;
+}
+
+:focus-visible {
+  outline-color: #13c8d5;
+}
+
+/* Timeline-specific styles follow the base styles so they take priority. */
+.timeline-page {
+  color: #172640;
+  background-color: #f2f7ff;
+}
+
+.timeline-page .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  padding: 75px 12px 32px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 1020;
+  background-color: #1455e8;
+  color: #fff;
+  border-right: 4px solid #dceaff;
+  box-shadow: 8px 0 28px rgba(18, 61, 184, 0.16);
+}
+
+.timeline-page .sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-page .sidebar .accordion-button {
+  min-height: 48px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 8px !important;
+  background: #f4f8ff !important;
+  color: #15325d !important;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+  box-shadow: 0 3px 0 rgba(8, 35, 106, 0.2) !important;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.timeline-page .sidebar .accordion-button::after {
+  filter: none;
+}
+
+.timeline-page .sidebar .accordion-button:hover {
+  transform: translateX(3px);
+  background: #dceaff !important;
+  color: #123db8 !important;
+  box-shadow: 0 3px 0 rgba(0, 82, 118, 0.2) !important;
+}
+
+.timeline-page .sidebar .accordion-button:hover::after {
+  filter: none;
+}
+
+.timeline-page .sidebar .accordion-button:not(.collapsed) {
+  background: #dceaff !important;
+  color: #172640 !important;
+  box-shadow: 0 3px 0 rgba(18, 61, 184, 0.2) !important;
+}
+
+.timeline-page .sidebar .accordion-button:not(.collapsed)::after {
+  filter: none;
+}
+
+.timeline-page .sidebar .accordion-button:not(.collapsed) {
+  border-color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.timeline-page .sidebar .accordion-button:focus-visible,
+.timeline-page .sidebar .nav-link:focus-visible,
+.timeline-page .scroll-arrow:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.timeline-page .sidebar .accordion-body {
+  margin: 0.35rem 0 0.65rem;
+  padding: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(7, 39, 124, 0.52) !important;
+}
+
+.timeline-page .sidebar .nav-link {
+  background: rgba(255, 255, 255, 0.94) !important;
+  padding: 0.58rem 0.65rem !important;
+  margin: 0.18rem 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #15325d !important;
+  font-size: 0.9rem !important;
+  line-height: 1.35;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.timeline-page .sidebar .nav-link:hover {
+  transform: translateX(3px);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: #dceaff !important;
+  color: #123db8 !important;
+}
+
+.timeline-page .main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 250px;
+  min-height: 100vh;
+  padding: 5rem 1rem 1.25rem;
+}
+
+.timeline-page #autoTimelineWrap {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 460px;
+  overflow: hidden;
+  border: 2px solid rgba(20, 85, 232, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.35);
+}
+
+.timeline-page #autoTimelineTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.2rem 0;
+  will-change: transform;
+}
+
+.timeline-page .card {
+  width: min(86%, 900px);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 2px solid rgba(20, 85, 232, 0.12);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 12px 0 rgba(20, 85, 232, 0.1),
+    0 22px 42px rgba(27, 52, 100, 0.13);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.timeline-page .card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 15px 0 rgba(20, 85, 232, 0.12),
+    0 28px 48px rgba(27, 52, 100, 0.18);
+}
+
+.timeline-page .card::before {
+  height: 9px;
+  background: linear-gradient(
+    90deg,
+    #13c8d5 0 24%,
+    #dceaff 24% 48%,
+    #13c8d5 48% 74%,
+    #8bdcf0 74% 100%
+  );
+}
+
+.timeline-page .catplace::before {
+  background: linear-gradient(90deg, #13c8d5, #1455e8, #13c8d5);
+}
+
+.timeline-page .catpeople::before {
+  background: linear-gradient(90deg, #13c8d5, #52c4e8, #dceaff);
+}
+
+.timeline-page .card-body {
+  padding: 1.8rem 1.7rem 1.6rem;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(145deg, #fff 0%, #edf5ff 100%);
+}
+
+.timeline-page .timeline-h1 {
+  color: #1455e8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.timeline-page .timeline-p {
+  color: #283449;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.timeline-page .timeline-p:first-letter {
+  color: #1455e8;
+}
+
+.timeline-page .link-container {
+  border: 1px solid rgba(20, 85, 232, 0.2);
+  border-left: 5px solid #13c8d5;
+  border-radius: 12px;
+  background: #f1fbff;
+  box-shadow: none;
+}
+
+.timeline-page .link-container a {
+  color: #104bbd;
+}
+
+.timeline-page .link-container a:hover {
+  color: #123db8;
+}
+
+.timeline-page .scroll-arrow {
+  position: absolute;
+  right: 14px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+  background: linear-gradient(145deg, #1455e8, #13aebe);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow:
+    0 6px 0 #123db8,
+    0 12px 24px rgba(18, 61, 184, 0.24);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.timeline-page .scroll-arrow:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(145deg, #dceaff, #13c8d5);
+  color: #172640;
+  box-shadow:
+    0 8px 0 #087eaa,
+    0 16px 28px rgba(18, 61, 184, 0.2);
+}
+
+.timeline-page #scrollUp {
+  top: 30%;
+}
+
+.timeline-page #scrollDown {
+  bottom: 30%;
+}
+
+.timeline-page #pauseIcon {
+  color: #1455e8 !important;
+  filter: drop-shadow(0 2px 0 #fff);
+}
+
+.timeline-page #sliderTooltip {
+  background: #1455e8 !important;
+  border: 2px solid #dceaff;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.timeline-page #timelineSlider {
+  accent-color: #1455e8;
+}
+
+.timeline-page #timelineSlider::-webkit-slider-thumb {
+  background: #13c8d5 !important;
+  border: 2px solid #1455e8;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.timeline-page #timelineSlider::-moz-range-thumb {
+  background: #13c8d5 !important;
+  border: 2px solid #1455e8;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+@media (max-width: 768px) {
+  .timeline-page .sidebar {
+    width: 200px;
+  }
+
+  .timeline-page .main {
+    margin-left: 200px;
+    padding: 1rem 0.5rem;
+  }
+
+  .timeline-page .card {
+    width: 92%;
+  }
+
+  .timeline-page .card-body {
+    padding: 1.5rem 1rem;
+  }
+
+  .timeline-page .scroll-arrow {
+    right: 8px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline-page .sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 32vh;
+    min-height: 220px;
+    max-height: 320px;
+    padding: 66px 10px 12px;
+    border-right: 0;
+    border-bottom: 4px solid #dceaff;
+  }
+
+  .timeline-page .main {
+    margin-left: 0;
+    min-height: 70vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .timeline-page #autoTimelineWrap {
+    height: 70vh;
+    min-height: 400px;
+  }
+
+  .timeline-page .card {
+    width: 92%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-page *,
+  .timeline-page *::before,
+  .timeline-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
